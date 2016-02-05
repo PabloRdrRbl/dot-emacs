@@ -3,8 +3,19 @@
 (require 'elpy)
 (elpy-enable)
 
+(require 'pyvenv)
+pyvenv-activate
+
+;; Let us use Anaconda environments
+;; http://emacs.stackexchange.com/questions/20092/using-conda-environments-in-emacs
+;;
+(setenv "WORKON_HOME" "~/miniconda3/envs")
+(pyvenv-mode 1)
+(pyvenv-workon 'scipy)
+
+
 ;; IPython as REPL
-;; (elpy-use-ipython)
+(elpy-use-ipython)
 
 ;; use flycheck not flymake with elpy
 (when (require 'flycheck nil t)

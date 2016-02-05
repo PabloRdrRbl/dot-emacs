@@ -23,6 +23,7 @@
     elpy
     flycheck
     material-theme
+    pyvenv
     py-autopep8)
     "A list of packages to ensure are installed at launch.")
 

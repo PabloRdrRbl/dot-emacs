@@ -6,8 +6,6 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lib"))
 
-(message "Vamos a ver si esto funciona...")
-
 (require 'prrobles-packages)
 
 (require 'prrobles-keys)
