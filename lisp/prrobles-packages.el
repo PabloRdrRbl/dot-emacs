@@ -24,7 +24,7 @@
     flycheck
     material-theme
     py-autopep8)
-    "A list of packages to ensure are installed at launch.)
+    "A list of packages to ensure are installed at launch.")
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
