@@ -34,6 +34,11 @@
   sino la tierra callada,
   el trabajo y el sudor.\n\n")
 
+; Disable the visible-bell (annoying square)
+;http://emacs.stackexchange.com/questions/20100/what-is-this-square-in-the-middle-of-the-emacs-gui
+;
+(setq ring-bell-function 'ignore)
+
 ;; Let us know how much time Emacs is taking to load.
 ;; [http://cheat.errtheblog.com/s/emacs_tips/]
 ;;
