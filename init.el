@@ -10,7 +10,6 @@
 
 (require 'prrobles-keys)
 (require 'prrobles-python)
-;; (require 'prrobles-spell)
 
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------

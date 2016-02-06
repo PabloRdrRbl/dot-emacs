@@ -3,7 +3,6 @@
 (require 'elpy)
 (elpy-enable)
 
-(require 'pyvenv)
 pyvenv-activate
 
 ;; Let us use Anaconda environments
