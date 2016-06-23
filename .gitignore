@@ -1,5 +1,11 @@
+# [http://stackoverflow.com/questions/9162919/whitelisting-and-
+# subdirectories-in-git]
+
+# First, ignore everything
 *
-!init.el
+
+# Now whitelist the files you are interested in
+!*.el
 !lisp/
 !lib/
 !README.md
