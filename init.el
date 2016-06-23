@@ -17,7 +17,7 @@
 ;; *** INSTALL THE FOLLOWING PYTHON PACKAGES ***
 ;;
 ;;     * autopep8
-         [https://anaconda.org/conda-forge/autopep8]
+;;       [https://anaconda.org/conda-forge/autopep8]
 ;;     * flake8
 ;;     * jedi
 ;;
@@ -31,12 +31,12 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lib"))
 
-(add-hook 'after-init-hook '(lambda ()
-  (load "~/.emacs.d/lisp/my-loadpackages.el")
-  (load "~/.emacs.d/lisp/my-packages.el")
-  (load "~/.emacs.d/lisp/my-noexternals.el")
-  (load "~/.emacs.d/lisp/my-python.el")
-  (load "~/.emacs.d/lisp/my-keys.el"))
+
+(load "~/.emacs.d/lisp/my-loadpackages.el")
+(load "~/.emacs.d/lisp/my-packages.el")
+(load "~/.emacs.d/lisp/my-noexternals.el")
+(load "~/.emacs.d/lisp/my-python.el")
+(load "~/.emacs.d/lisp/my-keys.el")
 
 
 ;; init.el ends here

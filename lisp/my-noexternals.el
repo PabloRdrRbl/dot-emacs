@@ -80,7 +80,7 @@
 (show-paren-mode 1)
 
 ;; IBM 80 column punch card style!
-;;(setq-default fill-column 80)
+(setq-default fill-column 80)
 
 ;; Highlight lines that exceed a certain length limit
 ;; [http://emacsredux.com/blog/2013/05/31/highlight-lines-
@@ -98,17 +98,25 @@
 ;; APPEARANCE PREFERENCES
 ;; --------------------------------------
 
+;; Custom themes path
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+
 ;; Load solarized-light if in a graphical environment.
 ;; Load the wombat theme if in a terminal.
+;; [http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/]
+;;
+;; Here you have a nice Emacs' themes gallery
+;; [https://emacsthemes.com/charts/all-time.html]
+;;
 (if window-system
-    (load-theme 'solarized-light t)
-  (load-theme 'wombat t))
+    (load-theme 'tangotango t)
+  (load-theme 'sanityinc-tomorrow-blue t))
 
 ;; Set font size
 ;; [http://stackoverflow.com/questions/294664/how-to-set-
 ;; the-font-size-in-emacs]
 ;;
-(set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil :height 200)
 
 
 ;; BACKUP PREFERENCES

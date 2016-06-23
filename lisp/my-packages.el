@@ -9,9 +9,11 @@
 ;; use just to set variables, not create them.
 (defvar required-packages
   '(
+    color-theme-sanityinc-tomorrow
     elpy
     flycheck
     magit
+    python-mode
     py-autopep8
     yasnippet
   ) "a list of packages to ensure are installed at launch.")

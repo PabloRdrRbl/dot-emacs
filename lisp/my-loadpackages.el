@@ -18,7 +18,7 @@
 (add-to-list 'package-archives
              '("elpy" . "http://jorgenschaefer.github.io/packages/") t)
 (add-to-list 'package-archives
-            '("elpy" . "https://gitlab.com/python-mode-devs/python-mode") t)
+            '("python-mode" . "https://gitlab.com/python-mode-devs/python-mode") t)
 
 ;; Initializes the package system so definitions are loaded
 (package-initialize)

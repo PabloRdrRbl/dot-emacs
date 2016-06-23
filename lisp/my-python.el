@@ -28,7 +28,7 @@
 
 ;; RUNING A VIRTUAL ENVIRONMENT
 ;; --------------------------------------
-(pyvenv-activate)
+pyvenv-activate
 
 ;; Let us use Anaconda environments
 ;; [http://emacs.stackexchange.com/questions/20092/
