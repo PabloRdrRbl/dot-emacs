@@ -15,6 +15,7 @@
     magit
     python-mode
     py-autopep8
+    smart-mode-line
     yasnippet
   ) "a list of packages to ensure are installed at launch.")
 

@@ -1,69 +1,20 @@
-;; my-noexternals.el --- Different GNU Emacs preferences
+;; my-editor.el --- Different GNU Emacs writing preferences
 ;;
 ;; Author: Pablo Rodríguez Robles
 ;;
 ;; --------------------------------------------------------
 
 
-;; EMACS' STARTUP CUSTOMIZATION
-;; --------------------------------------
-
-;; Remove scrollbars, menu bars, and toolbars
-;; when is a special form of "if", with no else clause, it reads:
-;; (when <condition> <code-to-execute-1> <code-to-execute2> ...)
-(when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-
-;; Supress the startup echo area message. This *must* be here (.emacs)
-;; Please note that Emacs forces us to hardcode our login name here
-(setq inhibit-startup-echo-area-message "USERNAME")
-(setq inhibit-startup-message t)
-
-;; Skip straight to the scratch buffer.
-;; So turn off the scratch message while we're at it.
-;; Since I end up using org-mode most of the time,
-;; set the default mode accordingly.
-(setq inhibit-splash-screen t
-      initial-scratch-message nil
-      initial-major-mode 'org-mode)
-
-;; Display current line and column numbers
-(setq line-number-mode  't)
-(setq column-number-mode t)
-(global-linum-mode t) ;; enable line numbers globally
-
-;; Set default window size
-;; [http://ergoemacs.org/emacs/emacs_customize_default_window_size.html]
-;;
-(setq initial-frame-alist
-      '(
-        (width . 85) ; character
-        (height . 35) ; lines
-        ))
-
-;; The content of the scratch buffer when Emacs starts up
-(setq initial-scratch-message
-  ";; Hola Pablo, espero que todo vaya bien.\n\n\n")
-
-;; Disable the visible-bell (annoying square)
-;; [http://emacs.stackexchange.com/questions/20100/what-is-this-square-
-;; in-the-middle-of-the-emacs-gui]
-;;
-(setq ring-bell-function 'ignore)
-
-
-;; WRITING PREFERENCES
-;; --------------------------------------
-
-;; Chage tabs for 4 pythonic spaces.
-(setq tab-width 4
-      indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil)   ;; Don't use tabs to indent.
+(setq-default tab-width 4)            ;; But maintain correct appearance.
 
 ;; This will put empty line markers into the left hand side.
 (setq-default indicate-empty-lines t)
 (when (not indicate-empty-lines)
   (toggle-indicate-empty-lines))
+
+;; Newline at end of file.
+(setq require-final-newline t)
 
 ;; Typing then the mark is active will write over the marked region.
 ;; Make the common highlighting keystrokes work the way most people
@@ -74,10 +25,28 @@
 (transient-mark-mode t)
 (setq x-select-enable-clipboard t)
 
+;; Hippie expand is dabbrev expand on steroids.
+(setq hippie-expand-try-functions-list '(try-expand-dabbrev
+                                         try-expand-dabbrev-all-buffers
+                                         try-expand-dabbrev-from-kill
+                                         try-complete-file-name-partially
+                                         try-complete-file-name
+                                         try-expand-all-abbrevs
+                                         try-expand-list
+                                         try-expand-line
+                                         try-complete-lisp-symbol-partially
+                                         try-complete-lisp-symbol))
+
+;; Smart tab behavior - indent or complete.
+(setq tab-always-indent 'complete)
+
 ;; Turn on highlight matching brackets when cursor is on one
 ;; [http://ergoemacs.org/emacs/emacs_highlight_parenthesis.html]
 ;;
 (show-paren-mode 1)
+
+;; Disable annoying blink-matching-paren.
+(setq blink-matching-paren nil)
 
 ;; IBM 80 column punch card style!
 (setq-default fill-column 80)
@@ -87,43 +56,30 @@
 ;; that-exceed-a-certain-length-limit/]
 (require 'whitespace)
 (setq whitespace-line-column 80) ;; limit line length
-(setq whitespace-style '(face lines-tail)) ;; what kind of stuff is
-                                           ;; going to highlight
+(setq whitespace-style '(face tabs empty trailing lines-tail))
+                         ;; what kind of stuff is
+                         ;; going to highlight
 
 (add-hook 'prog-mode-hook 'whitespace-mode) ;; only in major modes
                                             ;; for programming
 
+;; Use shift + arrow keys to switch between visible buffers.
+(require 'windmove)
+(windmove-default-keybindings)
 
+;; Highlight the current line.
+(global-hl-line-mode +1)
 
-;; APPEARANCE PREFERENCES
-;; --------------------------------------
-
-;; Custom themes path
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
-
-;; Load solarized-light if in a graphical environment.
-;; Load the wombat theme if in a terminal.
-;; [http://batsov.com/articles/2012/02/19/color-theming-in-emacs-reloaded/]
-;;
-;; Here you have a nice Emacs' themes gallery
-;; [https://emacsthemes.com/charts/all-time.html]
-;;
-(if window-system
-    (load-theme 'tangotango t)
-  (load-theme 'sanityinc-tomorrow-blue t))
-
-;; Set font size
-;; [http://stackoverflow.com/questions/294664/how-to-set-
-;; the-font-size-in-emacs]
-;;
-(set-face-attribute 'default nil :height 200)
-
+;; whitespace-mode config
+(require 'whitespace)
+(setq whitespace-line-column 80) ;; limit line length
+(setq whitespace-style '(face tabs empty trailing lines-tail))
 
 ;; BACKUP PREFERENCES
 ;; --------------------------------------
 ;; TODO: Folder to the backup files
 
 
-(provide 'my-noexternals)
+(provide 'my-editor)
 
-;; my-noexternals.el ends here
+;; my-editor.el ends here

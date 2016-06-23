@@ -38,6 +38,12 @@
 (require 'magit)
 (define-key global-map (kbd "C-c m") 'magit-status)
 
+;; *** POWERLINE ***
+(sml/setup)
+(setq sml/no-confirm-load-theme t)
+(setq sml/theme 'light)
+
+
 ;; *** YASNIPPET ***
 ;;(require 'yasnippet)
 ;;(yas-global-mode 1)
