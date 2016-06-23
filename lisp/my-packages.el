@@ -10,10 +10,13 @@
 (defvar required-packages
   '(
     elpy
+    flycheck
     magit
+    py-autopep8
     yasnippet
   ) "a list of packages to ensure are installed at launch.")
 
+;; Setup ELPA package sources
 (require 'cl)
 
 ;; Method to check if all packages are installed
@@ -35,6 +38,7 @@
   (dolist (p required-packages)
     (when (not (package-installed-p p))
       (package-install p))))
+
 
 (provide 'my-packages)
 

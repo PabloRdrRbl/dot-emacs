@@ -52,6 +52,19 @@
 ;;
 (setq ring-bell-function 'ignore)
 
+
+;; WRITING PREFERENCES
+;; --------------------------------------
+
+;; Chage tabs for 4 pythonic spaces.
+(setq tab-width 4
+      indent-tabs-mode nil)
+
+;; This will put empty line markers into the left hand side.
+(setq-default indicate-empty-lines t)
+(when (not indicate-empty-lines)
+  (toggle-indicate-empty-lines))
+
 ;; Typing then the mark is active will write over the marked region.
 ;; Make the common highlighting keystrokes work the way most people
 ;; expect them to.
@@ -61,14 +74,25 @@
 (transient-mark-mode t)
 (setq x-select-enable-clipboard t)
 
-;; This will put empty line markers into the left hand side.
-(setq-default indicate-empty-lines t)
-(when (not indicate-empty-lines)
-  (toggle-indicate-empty-lines))
+;; Turn on highlight matching brackets when cursor is on one
+;; [http://ergoemacs.org/emacs/emacs_highlight_parenthesis.html]
+;;
+(show-paren-mode 1)
 
-;; Chage tabs for 4 pythonic spaces.
-(setq tab-width 4
-      indent-tabs-mode nil)
+;; IBM 80 column punch card style!
+;;(setq-default fill-column 80)
+
+;; Highlight lines that exceed a certain length limit
+;; [http://emacsredux.com/blog/2013/05/31/highlight-lines-
+;; that-exceed-a-certain-length-limit/]
+(require 'whitespace)
+(setq whitespace-line-column 80) ;; limit line length
+(setq whitespace-style '(face lines-tail)) ;; what kind of stuff is
+                                           ;; going to highlight
+
+(add-hook 'prog-mode-hook 'whitespace-mode) ;; only in major modes
+                                            ;; for programming
+
 
 
 ;; APPEARANCE PREFERENCES
@@ -86,7 +110,11 @@
 ;;
 (set-face-attribute 'default nil :height 160)
 
+
+;; BACKUP PREFERENCES
+;; --------------------------------------
 ;; TODO: Folder to the backup files
+
 
 (provide 'my-noexternals)
 
