@@ -11,7 +11,7 @@
 
 ;; To install and enable elpy we need to install flake8 and jedi
 ;; using your preferred method for installing Python packages.
-;; Just enable it
+;; Enable elpy (emacs lisp python)
 (require 'elpy)
 (elpy-enable)
 

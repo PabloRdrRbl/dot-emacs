@@ -12,6 +12,15 @@
 ;; [3] [https://github.com/vterron/dot-emacs]
 ;; [4] [http://pedrokroger.net/configuring-emacs-python-ide/]
 ;; [5] [https://github.com/kpurdon/kp-emacs]
+;;
+;; *** TO RUN THIS CONFIGURATION YOU NEED TO ***
+;; *** INSTALL THE FOLLOWING PYTHON PACKAGES ***
+;;
+;;     * autopep8
+         [https://anaconda.org/conda-forge/autopep8]
+;;     * flake8
+;;     * jedi
+;;
 ;; ----------------------------------------------
 
 ;; User details
