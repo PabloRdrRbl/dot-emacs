@@ -31,10 +31,15 @@
 (column-number-mode t)
 (size-indication-mode t)
 
+;; Line numbers.
+;; [https://www.emacswiki.org/emacs/LineNumbers]
+;;
+(global-linum-mode t)
+
 ;; More useful frame title, that show either a file or a
 ;; buffer name (if the buffer isn't visiting a file).
 (setq frame-title-format
-      '("" invocation-name " Emacs - " (:eval (if (buffer-file-name)
+      '("" invocation-name " --- " (:eval (if (buffer-file-name)
                                             (abbreviate-file-name (buffer-file-name))
                                           "%b"))))
 
@@ -57,6 +62,8 @@
 ;;
 (setq ring-bell-function 'ignore)
 
+;; New lines without RET.
+(setq next-line-add-newlines t)
 
 (provide 'my-ui)
 

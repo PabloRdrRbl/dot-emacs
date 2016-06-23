@@ -12,15 +12,15 @@
 (setq mac-option-modifier nil)    ;; alt remains been used for composing
                                   ;; special characters
 
-;; Spanish keyboard modifications
-;; DEPRECATED
-;;(global-set-key (kbd "M-1") "|")
-;;(global-set-key (kbd "M-2") "@")
-;;(global-set-key (kbd "M-3") "#")
-;;(global-set-key (kbd "M-º") "\\")
-;;(global-set-key (kbd "M-ç") "}")
-;;(global-set-key (kbd "M-+") "]")
-;;(global-set-key (kbd "M-ñ") "~")
+;; BufferSelection
+;; [https://www.emacswiki.org/emacs/BufferSelection]
+;;
+(global-set-key (kbd "C-x C-b") 'bs-show)
+
+;; ace-window. GNU Emacs package for selecting a window to switch to.
+;; [https://github.com/abo-abo/ace-window]
+;;
+(global-set-key (kbd "M-p") 'ace-window)
 
 
 (provide 'my-keys)

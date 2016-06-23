@@ -4,23 +4,46 @@
 ;;
 ;; --------------------------------------------------------
 
+;; Loads the package 'package' via the require keyword
+(require 'package)
+
+;; Setup ELPA package sources
+(require 'cl)
+
+;; Installs relevant package managers
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("org" . "http://orgmode.org/elpa/") t)
+(add-to-list 'package-archives
+             '("elpy" . "http://jorgenschaefer.github.io/packages/") t)
+(add-to-list 'package-archives
+            '("python-mode" . "https://gitlab.com/python-mode-devs/python-mode") t)
+
+;; Initializes the package system so definitions are loaded
+(package-initialize)
+
 ;; defvar is the correct way to declare global variables
 ;; you might see setq as well, but setq is supposed to be
 ;; use just to set variables, not create them.
 (defvar required-packages
   '(
+    ace-window
     color-theme-sanityinc-tomorrow
     elpy
+    expand-region
     flycheck
+    helm
     magit
     python-mode
     py-autopep8
     smart-mode-line
+    zenburn-theme
     yasnippet
   ) "a list of packages to ensure are installed at launch.")
 
-;; Setup ELPA package sources
-(require 'cl)
 
 ;; Method to check if all packages are installed
 ;; Package-installed-p is from package.el and checks
