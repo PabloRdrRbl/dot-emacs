@@ -21,12 +21,9 @@
 (define-key global-map (kbd "C-c m") 'magit-status)
 
 ;; *** YASNIPPET ***
-;;(require 'yasnippet)
-;;(yas-global-mode 1)
-;;(yas-load-directory "~/.emacs.d/snippets")
-;;(add-hook 'term-mode-hook (lambda()
-;;    (setq yas-dont-activate t)))
-
+(add-to-list 'load-path "~/.emacs.d/snippets/yasnippet-snippets")
+(require 'yasnippet)
+(yas-global-mode 1)
 
 (provide 'my-loadpackages)
 

@@ -15,7 +15,13 @@
 ;; BufferSelection
 ;; [https://www.emacswiki.org/emacs/BufferSelection]
 ;;
-(global-set-key (kbd "C-x C-b") 'bs-show)
+(global-set-key (kbd "C-x b") 'bs-show)
+
+;; Helm buffers list.
+;; [http://emacs.stackexchange.com/questions/728/
+;; how-do-i-switch-buffers-quickly]
+;;
+(global-set-key (kbd "M-l") 'helm-buffers-list)
 
 ;; ace-window. GNU Emacs package for selecting a window to switch to.
 ;; [https://github.com/abo-abo/ace-window]

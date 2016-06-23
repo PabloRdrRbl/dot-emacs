@@ -8,7 +8,7 @@
 !*.el
 !lisp/
 !lib/
-!snippets/
+!snippets/my-snippets
 !README.md
 !.gitignore
 
