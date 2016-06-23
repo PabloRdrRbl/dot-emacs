@@ -7,7 +7,9 @@
 ;; the following RESOURCES:
 ;;
 ;; [1] [http://aaronbedra.com/emacs.d/]
-;; [2] []
+;; [2] [http://y.tsutsumi.io/emacs-from-scratch-part-1-
+;;      extending-emacs-basics.html]
+;; [3]
 ;; ----------------------------------------------
 
 ;; User details
@@ -18,39 +20,16 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lib"))
 
+(load "~/.emacs.d/lisp/my-noexternals.el")
+(load "~/.emacs.d/lisp/my-loadpackages.el")
+(load "~/.emacs.d/lisp/my-packages.el")
+(load "~/.emacs.d/lisp/my-python.el")
+(load "~/.emacs.d/lisp/my-keys.el")
+
 ;; BASIC CUSTOMIZATION
 ;; --------------------------------------
 
-;; Set default window size
-;; [http://ergoemacs.org/emacs/emacs_customize_default_window_size.html]
-;;
-(setq initial-frame-alist
-      '(
-        (width . 85) ; character
-        (height . 35) ; lines
-        ))
 
-;; Set font size
-;; [http://stackoverflow.com/questions/294664/how-to-set-the-font-size-in-emacs]
-;;
-(set-face-attribute 'default nil :height 160)
-
-;; Supress the startup echo area message. This *must* be here (.emacs)
-;; Please note that Emacs forces us to hardcode our login name here
-(setq inhibit-startup-echo-area-message "USERNAME")
-(setq inhibit-startup-message t)
-
-;; Display current line and column numbers
-(setq line-number-mode  't)
-(setq column-number-mode t)
-
-(load-theme 'material t) ;; load material theme
-
-(global-linum-mode t) ;; enable line numbers globally
-
-;; The content of the scratch buffer when Emacs starts up
-(setq initial-scratch-message
-  ";; Hola Pablo, espero que todo vaya bien.\n\n\n")
 
 ;; Disable the visible-bell (annoying square)
 ;; [http://emacs.stackexchange.com/questions/20100/what-is-this-square-
@@ -65,12 +44,6 @@
 (setq inhibit-splash-screen t
       initial-scratch-message nil
       initial-major-mode 'org-mode)
-
-;; Emacs starts up with way too much enabled.
-;; Turn off the scroll bar, menu bar, and tool bar.
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
 
 ;; Typing then the mark is active will write over the marked region.
 ;; Make the common highlighting keystrokes work the way most people

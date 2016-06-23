@@ -1,4 +1,8 @@
-;; prrobles-python.el --- Python configuration file (GNU Emacs)
+;; my-python.el --- Python configuration file (GNU Emacs)
+;;
+;; Author: Pablo Rodríguez Robles
+;;
+;; --------------------------------------------------------
 
 (require 'elpy)
 (elpy-enable)
@@ -25,6 +29,6 @@ pyvenv-activate
 (require 'py-autopep8)
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
-(provide 'prrobles-python)
+(provide 'my-python)
 
-;; prrobles-python.el ends here
+;; my-python.el ends here
