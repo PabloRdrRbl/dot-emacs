@@ -6,9 +6,9 @@
 
 # Now whitelist the files you are interested in
 !*.el
-!lisp/
-!lib/
-!snippets/my-snippets
+!lisp/*
+!lib/*
+!snippets/my-snippets/*
 !README.md
 !.gitignore
 
