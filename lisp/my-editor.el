@@ -9,9 +9,9 @@
 (setq-default tab-width 4)            ;; But maintain correct appearance.
 
 ;; This will put empty line markers into the left hand side.
-(setq-default indicate-empty-lines t)
-(when (not indicate-empty-lines)
-  (toggle-indicate-empty-lines))
+;;(setq-default indicate-empty-lines t)
+;;(when (not indicate-empty-lines)
+;;  (toggle-indicate-empty-lines))
 
 ;; Newline at end of file.
 (setq require-final-newline t)
@@ -25,20 +25,11 @@
 (transient-mark-mode t)
 (setq x-select-enable-clipboard t)
 
-;; Hippie expand is dabbrev expand on steroids.
-(setq hippie-expand-try-functions-list '(try-expand-dabbrev
-                                         try-expand-dabbrev-all-buffers
-                                         try-expand-dabbrev-from-kill
-                                         try-complete-file-name-partially
-                                         try-complete-file-name
-                                         try-expand-all-abbrevs
-                                         try-expand-list
-                                         try-expand-line
-                                         try-complete-lisp-symbol-partially
-                                         try-complete-lisp-symbol))
+;; New lines without RET.
+(setq next-line-add-newlines t)
 
-;; Smart tab behavior - indent or complete.
-(setq tab-always-indent 'complete)
+;; The blinking cursor is nothing, but an annoyance.
+(blink-cursor-mode -1)
 
 ;; Turn on highlight matching brackets when cursor is on one
 ;; [http://ergoemacs.org/emacs/emacs_highlight_parenthesis.html]
@@ -60,24 +51,15 @@
                          ;; what kind of stuff is
                          ;; going to highlight
 
-(add-hook 'prog-mode-hook 'whitespace-mode) ;; only in major modes
-                                            ;; for programming
-
-;; Use shift + arrow keys to switch between visible buffers.
-(require 'windmove)
-(windmove-default-keybindings)
-
 ;; Highlight the current line.
 (global-hl-line-mode +1)
 
-;; whitespace-mode config
-(require 'whitespace)
-(setq whitespace-line-column 80) ;; limit line length
-(setq whitespace-style '(face tabs empty trailing lines-tail))
-
 ;; BACKUP PREFERENCES
 ;; --------------------------------------
-;; TODO: Folder to the backup files
+;; Maybe in the future I would like to place this kind
+;; of files in a folder or in a tree
+(setq make-backup-files nil) ; stop creating backup~ files
+(setq auto-save-default nil) ; stop creating #autosave# files
 
 
 (provide 'my-editor)

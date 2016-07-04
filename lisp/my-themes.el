@@ -14,9 +14,10 @@
 ;; Here you have a nice Emacs' themes gallery
 ;; [https://emacsthemes.com/charts/all-time.html]
 ;;
-(if window-system
-    (load-theme 'zenburn t)
-  (load-theme 'zenburn t))
+;;(if window-system
+;;    (load-theme 'zenburn t)
+;;  (load-theme 'zenburn t)
+;;)
 
 (require 'smart-mode-line)
 (setq sml/no-confirm-load-theme t)

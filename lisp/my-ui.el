@@ -23,21 +23,18 @@
       initial-scratch-message nil
       initial-major-mode 'org-mode)
 
-;; The blinking cursor is nothing, but an annoyance.
-(blink-cursor-mode -1)
-
 ;; Display current line and column numbers
 (line-number-mode t)
 (column-number-mode t)
 (size-indication-mode t)
 
-;; Line numbers.
+;; Line numbers
 ;; [https://www.emacswiki.org/emacs/LineNumbers]
 ;;
 (global-linum-mode t)
 
 ;; More useful frame title, that show either a file or a
-;; buffer name (if the buffer isn't visiting a file).
+;; buffer name (if the buffer isn't visiting a file)
 (setq frame-title-format
       '("" invocation-name " --- " (:eval (if (buffer-file-name)
                                             (abbreviate-file-name (buffer-file-name))
@@ -53,8 +50,8 @@
         ))
 
 ;; The content of the scratch buffer when Emacs starts up
-(setq initial-scratch-message
-  ";; Hola Pablo, espero que todo vaya bien.\n\n\n")
+;;(setq initial-scratch-message
+;;  ";; Hola Pablo, espero que todo vaya bien.\n\n\n")
 
 ;; Disable the visible-bell (annoying square)
 ;; [http://emacs.stackexchange.com/questions/20100/what-is-this-square-
@@ -62,8 +59,6 @@
 ;;
 (setq ring-bell-function 'ignore)
 
-;; New lines without RET.
-(setq next-line-add-newlines t)
 
 (provide 'my-ui)
 

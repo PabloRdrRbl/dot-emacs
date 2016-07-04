@@ -21,7 +21,7 @@
 ;; [http://emacs.stackexchange.com/questions/728/
 ;; how-do-i-switch-buffers-quickly]
 ;;
-(global-set-key (kbd "M-l") 'helm-buffers-list)
+;;(global-set-key (kbd "M-l") 'helm-buffers-list)
 
 ;; ace-window. GNU Emacs package for selecting a window to switch to.
 ;; [https://github.com/abo-abo/ace-window]

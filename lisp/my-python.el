@@ -17,7 +17,7 @@
 
 ;; Emacs+Elpy comes with a package called Flymake to support syntax checking.
 ;; Flycheck supports realtime syntax checking.
-(when (require 'flycheck nil t)
+ (when (require 'flycheck nil t)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
 

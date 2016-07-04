@@ -39,6 +39,6 @@
 (require 'my-ui)
 (require 'my-themes)
 (require 'my-keys)
-(require 'my-python)
+;;(require 'my-python)
 
 ;; init.el ends here

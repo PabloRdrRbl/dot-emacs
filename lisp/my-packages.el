@@ -33,6 +33,7 @@
     ace-window
     color-theme-sanityinc-tomorrow
     elpy
+    exec-path-from-shell
     expand-region
     flycheck
     helm
@@ -40,7 +41,6 @@
     python-mode
     py-autopep8
     smart-mode-line
-    zenburn-theme
     yasnippet
   ) "a list of packages to ensure are installed at launch.")
 
