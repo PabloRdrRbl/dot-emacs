@@ -9,6 +9,11 @@
 (require 'my-packages)
 
 ;; *** BENCHMARK INIT ***
+;; [https://github.com/dholm/benchmark-init-el]
+;;
+;; Run make inside the directory where you installed
+;; benchmark-init, this will produce the
+;; benchmark-init-loaddefs.el file. 
 (add-to-list 'load-path "~/.emacs.d/lib/benchmark-init/")
 (require 'benchmark-init-loaddefs)
 (benchmark-init/activate)
@@ -23,6 +28,18 @@
         ))
 (yas-global-mode 1)
 
+;; *** HELM ***
+;; [http://daemons.cf/posts/introduccin-a-helm/]
+;;
+;; More config in lisp/my-keys.el
+(require 'helm)
+(require 'helm-config)
+
+(setq helm-split-window-in-side-p           t
+      helm-move-to-line-cycle-in-source     t
+      helm-ff-search-library-in-sexp        t
+      helm-scroll-amount                    8
+      helm-ff-file-name-history-use-recentf t)
 
 
 (provide 'my-loadpackages)

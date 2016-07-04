@@ -15,13 +15,20 @@
 ;; BufferSelection
 ;; [https://www.emacswiki.org/emacs/BufferSelection]
 ;;
-(global-set-key (kbd "C-x b") 'bs-show)
+;;(global-set-key (kbd "C-x b") 'bs-show)
 
 ;; Helm buffers list.
-;; [http://emacs.stackexchange.com/questions/728/
-;; how-do-i-switch-buffers-quickly]
+;; [http://daemons.cf/posts/introduccin-a-helm/]
 ;;
-;;(global-set-key (kbd "M-l") 'helm-buffers-list)
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
+(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
+(define-key helm-map (kbd "C-z")  'helm-select-action)
+
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "M-x") 'helm-M-x)
+
+(global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 ;; ace-window. GNU Emacs package for selecting a window to switch to.
 ;; [https://github.com/abo-abo/ace-window]
