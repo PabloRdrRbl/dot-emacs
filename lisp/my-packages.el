@@ -38,6 +38,8 @@
     flycheck
     helm
     magit
+    markdown-mode
+    noctilux-theme
     python-mode
     py-autopep8
     smart-mode-line
