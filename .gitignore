@@ -5,10 +5,10 @@
 /*
 
 # Now whitelist the files you are interested in
-!/*.el
-!/lisp/*
-!/lib/*
-!/snippets/*
+!*.el
+!/lisp
+!/lib
+!/snippets
 
 !README.md
 !.gitignore
