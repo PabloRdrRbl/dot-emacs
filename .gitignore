@@ -2,13 +2,14 @@
 # subdirectories-in-git]
 
 # First, ignore everything
-*
+/*
 
 # Now whitelist the files you are interested in
-!*.el
-!lisp/*
-!lib/*
-!snippets/my-snippets/*
+!/*.el
+!/lisp/*
+!/lib/*
+!/snippets/*
+
 !README.md
 !.gitignore
 
