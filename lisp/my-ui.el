@@ -21,7 +21,8 @@
 ;; set the default mode accordingly.
 (setq inhibit-splash-screen t
       initial-scratch-message nil
-      initial-major-mode 'org-mode)
+;      initial-major-mode 'org-mode
+      )
 
 ;; Display current line and column numbers
 (line-number-mode t)

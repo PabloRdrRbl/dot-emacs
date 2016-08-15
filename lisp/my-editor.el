@@ -53,7 +53,7 @@
                          ;; going to highlight
 
 ;; Highlight the current line.
-(global-hl-line-mode +1)
+;(global-hl-line-mode +1)
 
 ;; BACKUP PREFERENCES
 ;; --------------------------------------

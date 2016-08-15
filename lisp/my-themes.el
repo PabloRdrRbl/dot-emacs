@@ -15,8 +15,8 @@
 ;; [https://emacsthemes.com/charts/all-time.html]
 ;;
 (if window-system
-    (load-theme 'noctilux t)
-  (load-theme 'noctilux t)
+    (load-theme 'leuven t)
+    (load-theme 'leuven t)
 )
 
 (require 'smart-mode-line)

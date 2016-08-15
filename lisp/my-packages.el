@@ -39,7 +39,6 @@
     helm
     magit
     markdown-mode
-    noctilux-theme
     org
     python-mode
     py-autopep8
