@@ -3,9 +3,8 @@
 # name: function ... end function ...
 # key: fun
 # --
-function ${1:name} (${2:arg})
+${3:real(kind=8)} function ${1:name}(${2:arg})
   implicit none
-  ${3:real(kind=8)} :: $1
   ${4:real(kind=8), intent(in)} :: $2
 
   $0

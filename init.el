@@ -31,6 +31,13 @@
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lib"))
 
+;; Emacs server conf
+;; [http://jr0cket.co.uk/2012/10/using-emacs-24
+;; -server-on-mac-osx-for.html]
+;;
+(load "server")
+(unless (server-running-p) (server-start))
+
 (message "Loading configuration files...")
 
 (require 'my-packages)
@@ -39,6 +46,6 @@
 (require 'my-ui)
 (require 'my-themes)
 (require 'my-keys)
-;;(require 'my-python)
+(require 'my-python)
 
 ;; init.el ends here

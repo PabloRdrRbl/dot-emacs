@@ -26,7 +26,8 @@
 (setq x-select-enable-clipboard t)
 
 ;; New lines without RET.
-(setq next-line-add-newlines t)
+;; Deprecated, it is better to use C-o in order to get this.
+;(setq next-line-add-newlines t)
 
 ;; The blinking cursor is nothing, but an annoyance.
 (blink-cursor-mode -1)
