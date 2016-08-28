@@ -1,51 +1,26 @@
-;; init.el --- GNU Emacs top-level configuration file
+;;; init.el --- Where all the magic begins
 ;;
-;; Author: Pablo Rodríguez Robles
-;;
-;; This and the other files of my Emacs' configuration
-;; use (sometimes even the comments are reproduced)
-;; the following RESOURCES:
-;;
-;; [1] [http://aaronbedra.com/emacs.d/]
-;; [2] [http://y.tsutsumi.io/emacs-from-scratch-part-1-
-;;      extending-emacs-basics.html]
-;; [3] [https://github.com/vterron/dot-emacs]
-;; [4] [http://pedrokroger.net/configuring-emacs-python-ide/]
-;; [5] [https://github.com/kpurdon/kp-emacs]
-;;
-;; *** TO RUN THIS CONFIGURATION YOU NEED TO ***
-;; *** INSTALL THE FOLLOWING PYTHON PACKAGES ***
-;;
-;;     * autopep8
-;;       [https://anaconda.org/conda-forge/autopep8]
-;;     * flake8
-;;     * jedi
-;;
-;; ----------------------------------------------
+;; This file loads Org-mode and then loads the rest of our Emacs initialization from Emacs lisp
+;; embedded in literate Org-mode files.
 
-;; User details
-(defun author-name  () "Pablo Rodríguez Robles")
-(defun author-email () "pablordrrbl@gmail.com")
+;; Load up Org Mode and (now included) Org Babel for elisp embedded in Org Mode files
+(setq dotfiles-dir (file-name-directory (or (buffer-file-name) load-file-name)))
 
-;; Adding other folders to the path
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/lib"))
+(let* ((org-dir (expand-file-name
+                 "lisp" (expand-file-name
+                         "org" (expand-file-name
+                                "src" dotfiles-dir))))
+       (org-contrib-dir (expand-file-name
+                         "lisp" (expand-file-name
+                                 "contrib" (expand-file-name
+                                            ".." org-dir))))
+       (load-path (append (list org-dir org-contrib-dir)
+                          (or load-path nil))))
+  ;; load up Org-mode and Org-babel
+  (require 'org-install)
+  (require 'ob-tangle))
 
-;; Emacs server conf
-;; [http://jr0cket.co.uk/2012/10/using-emacs-24
-;; -server-on-mac-osx-for.html]
-;;
-(load "server")
-(unless (server-running-p) (server-start))
+;; load up all literate org-mode files in this directory
+(mapc #'org-babel-load-file (directory-files dotfiles-dir t "\\.org$"))
 
-(message "Loading configuration files...")
-
-(require 'my-packages)
-(require 'my-loadpackages)
-(require 'my-editor)
-(require 'my-ui)
-(require 'my-themes)
-(require 'my-keys)
-(require 'my-python)
-
-;; init.el ends here
+;;; init.el ends here
