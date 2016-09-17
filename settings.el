@@ -2,7 +2,7 @@
 (defun author-name  () "Pablo Rodríguez Robles")
 (defun author-email () "pablordrrbl@gmail.com")
 
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
+;(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
 (add-to-list 'load-path (expand-file-name "~/.emacs.d/lib"))
 
 (require 'package)
@@ -24,7 +24,6 @@
 (defvar required-packages
   '(
     ace-window
-    color-theme-sanityinc-tomorrow
     elpy
     exec-path-from-shell
     expand-region
@@ -80,10 +79,10 @@
 (setq org-log-done t)
 
 (setq org-agenda-files (list "~/Dropbox/org/university.org"
-                             "~/Dropbox//org/personal.org" 
-                             "~/Dropbox//org/erasmus.org"))
+                             "~/Dropbox/org/personal.org" 
+                             "~/Dropbox/org/erasmus.org"))
 
-(setq org-startup-truncated nil)
+;(setq org-startup-truncated nil)
 
 (setq-default indent-tabs-mode nil)
 
