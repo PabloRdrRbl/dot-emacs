@@ -3,7 +3,7 @@
 (defun author-email () "pablordrrbl@gmail.com")
 
 ;(add-to-list 'load-path (expand-file-name "~/.emacs.d/lisp"))
-(add-to-list 'load-path (expand-file-name "~/.emacs.d/lib"))
+;(add-to-list 'load-path (expand-file-name "~/.emacs.d/lib"))
 
 (require 'package)
 (require 'cl)
@@ -16,8 +16,6 @@
              '("org" . "http://orgmode.org/elpa/") t)
 (add-to-list 'package-archives
              '("elpy" . "http://jorgenschaefer.github.io/packages/") t)
-(add-to-list 'package-archives
-            '("python-mode" . "https://gitlab.com/python-mode-devs/python-mode") t)
 
 (package-initialize)
 
@@ -32,8 +30,8 @@
     magit
     markdown-mode
     org
-    python-mode
     py-autopep8
+    pyvenv
     smart-mode-line
     yasnippet
   ) "a list of packages to ensure are installed at launch.")
@@ -53,16 +51,29 @@
     (when (not (package-installed-p p))
       (package-install p))))
 
-(add-to-list 'load-path "~/.emacs.d/lib/benchmark-init/")
-(require 'benchmark-init-loaddefs)
-(benchmark-init/activate)
+(require 'py-autopep8)
+(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 
-(require 'yasnippet)
-(setq yas-snippet-dirs
-      '("~/.emacs.d/snippets/yasnippet-snippets"    ;; the default collection
-        "~/.emacs.d/snippets/my-snippets"           ;; personal snippets
-        ))
-(yas-global-mode 1)
+(add-hook 'after-init-hook 'global-company-mode)
+
+(elpy-enable)
+
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+(exec-path-from-shell-copy-env "PYTHONPATH")
+
+(when (require 'flycheck nil t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
+
+(autoload 'f90-mode "f90" "Fortran 90 mode" t)
+(add-hook 'f90-mode-hook 'my-f90-mode-hook)
+
+(defun my-f90-mode-hook ()
+  (setq f90-font-lock-keywords f90-font-lock-keywords-3)
+  (abbrev-mode 1)                       ; turn on abbreviation mode
+  (turn-on-font-lock)                   ; syntax highlighting
+  (auto-fill-mode 0))                   ; turn off auto-filling
 
 (require 'helm)
 (require 'helm-config)
@@ -78,11 +89,22 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 
-(setq org-agenda-files (list "~/Dropbox/org/university.org"
-                             "~/Dropbox/org/personal.org" 
-                             "~/Dropbox/org/erasmus.org"))
+;(setq org-agenda-files (list "~/Dropbox/org/university.org"
+;                             "~/Dropbox/org/personal.org"
+;                             "~/Dropbox/org/erasmus.org"))
 
 ;(setq org-startup-truncated nil)
+
+(setenv "WORKON_HOME" "/Users/pablo/miniconda3/envs")
+(pyvenv-mode 1)
+(pyvenv-activate "science")
+
+(require 'yasnippet)
+(setq yas-snippet-dirs
+      '("~/.emacs.d/snippets/yasnippet-snippets"    ;; the default collection
+        "~/.emacs.d/snippets/my-snippets"           ;; personal snippets
+        ))
+(yas-global-mode 1)
 
 (setq-default indent-tabs-mode nil)
 
@@ -121,6 +143,8 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 (global-set-key (kbd "M-p") 'ace-window)
+
+(global-set-key (kbd "C-x g") 'magit-status)
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 
